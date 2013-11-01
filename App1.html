@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Ilaiyaraja
+		</title>
+		<link rel="stylesheet"  href="css/jquery.mobile-1.3.2.css">
+		<link rel="stylesheet"  href="css/App1.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.3.2.js"></script>
+		<script src="js/App1.js"></script>
+		<script src="js/AppCanvas.js"></script>
+		<script>
+			$(function(){
+				animateHomeImages();
+			});
+			var fadeTimeOut=2000;
+			var rndNumNew,rndNumOld;
+			//setTimeOut(animateHomeImages(),10000);
+			animateHomeImages = function(){
+				//alert('animateHomeImages();');
+				rndNumNew=parseInt(Math.random()*9);
+				if(rndNumNew!=rndNumOld)
+				{
+					//alert(rndNum);
+					$('#'+rndNumNew).fadeOut(fadeTimeOut/2);
+					$('#'+rndNumNew).fadeIn(fadeTimeOut/2);
+					setTimeout("animateHomeImages();", fadeTimeOut);
+				}
+				else
+				{
+					animateHomeImages();
+				}
+			}
+			
+			$(function(){
+				$('#ballSplitPage').on("pageshow", function( event, data ){
+					drawBall(100,100,20);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="homePage" class="page">
+			<div data-role="header" data-position="fixed" class="headerfooter"><center class="headerfootercenter">Header</center></div>
+			<div data-role="content" class="ui-content">
+				<center>
+				<fieldset class="ui-grid-b" width="70%">
+					<div class="ui-block-a" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/a.jpg" id="0" class="homeImage"/></a></div>
+					<div class="ui-block-b" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/b.jpg" id="1" class="homeImage"/></a></div>
+					<div class="ui-block-c" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/c.jpg" id="2" class="homeImage"/></a></div>
+					<div class="ui-block-a" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/d.jpg" id="3" class="homeImage"/></a></div>
+					<div class="ui-block-b" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/e.jpg" id="4" class="homeImage"/></a></div>
+					<div class="ui-block-c" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/f.jpg" id="5" class="homeImage"/></a></div>
+					<div class="ui-block-a" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/g.jpg" id="6" class="homeImage"/></a></div>
+					<div class="ui-block-b" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/i.jpg" id="7" class="homeImage"/></a></div>
+					<div class="ui-block-c" class="homeImageDiv"><a href="#ballSplitPage" data-transition="flip"><img src="images/j.jpg" id="8" class="homeImage"/></a></div>
+				</fieldset>
+				</center>
+			</div>
+			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">footer</center></footer>
+		</div>
+		<div data-role="page" id="ballSplitPage" class="page">
+			<header data-role="header" data-position="fixed" class="headerfooter">
+				<a href="#" data-rel="back" data-transition="flip">b</a>
+				<center class="headerfootercenter">header</center>
+			</header>
+			<div data-role="content" width="100%">
+				<center>
+					<canvas id="ballSplitCanvas" width="400" height="300" style="background: aquamarine;">
+					</canvas> 
+				</center>
+			</div>
+			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">footer</center></footer>
+		</div>
+		<div data-role="page" id="aboutPage">
+			<header data-role="header" class="headerfooter"><center class="headerfootercenter">header</center></header>
+			<div>
+				<a href="#page1" data-role="button" data-transition="flip">About Us</a>
+			</div>
+			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">footer</center></footer>
+		</div>
+	</body>
+</html>
