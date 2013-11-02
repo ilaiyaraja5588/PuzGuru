@@ -67,7 +67,7 @@ moveY=function(y1) {
 // A function to bounce the ball
 bounceX=function(curX,curRadious,canvasWidth) {
   // If weâ€™ve reached an edge, reverse speed
-  alert(curX+","+curRadious+","+canvasHeight);
+  //alert(curX+","+curRadious+","+canvasHeight);
   if ((curX+(curRadious/2) > canvasWidth) || (curX-(curRadious/2) < 0)) {
     directionX = directionX * - 1;
   }
