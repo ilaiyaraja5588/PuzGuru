@@ -11,6 +11,7 @@
 		<script src="js/App1.js"></script>
 		<script src="js/AppCanvas.js"></script>
 		<script>
+			var isPlaying=0;
 			$(function(){
 				animateHomeImages();
 			});
@@ -35,14 +36,20 @@
 			
 			$(function(){
 				$('#ballSplitPage').on("pageshow", function( event, data ){
-					drawBall(100,100,20);
+					isPlaying=1;//Start ball animation
+					//alert(isPlaying);
+					resizeCanvas_ballSplit();
+				});
+				
+				$('#homePage').on("pageshow", function( event, data ){
+					isPlaying=0;//Stop animation
 				});
 			});
 		</script>
 	</head>
 	<body>
 		<div data-role="page" id="homePage" class="page">
-			<div data-role="header" data-position="fixed" class="headerfooter"><center class="headerfootercenter">Header</center></div>
+			<div data-role="header" data-position="fixed" class="headerfooter"><center class="headerfootercenter">Puzguru</center></div>
 			<div data-role="content" class="ui-content">
 				<center>
 				<fieldset class="ui-grid-b" width="70%">
@@ -58,12 +65,12 @@
 				</fieldset>
 				</center>
 			</div>
-			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">footer</center></footer>
+			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">Copyright@Kutty</center></footer>
 		</div>
 		<div data-role="page" id="ballSplitPage" class="page">
 			<header data-role="header" data-position="fixed" class="headerfooter">
-				<a href="#" data-rel="back" data-transition="flip">b</a>
-				<center class="headerfootercenter">header</center>
+				<a data-role="button" data-icon="bk" data-iconpos="notext" data-theme="d" data-rel="back">Back</a>
+				<center class="headerfootercenter">BallSplit-Level 1</center>
 			</header>
 			<div data-role="content" width="100%">
 				<center>
@@ -71,7 +78,7 @@
 					</canvas> 
 				</center>
 			</div>
-			<footer data-role="footer" data-position="fixed" class="headerfooter"><center class="headerfootercenter">footer</center></footer>
+			<footer data-role="footer" data-position="fixed" class="headerfooter"><center id="check" class="headerfootercenter">PuzGuru</center></footer>
 		</div>
 		<div data-role="page" id="aboutPage">
 			<header data-role="header" class="headerfooter"><center class="headerfootercenter">header</center></header>
